@@ -1,4 +1,5 @@
-      
+let countpara=document.getElementById('num');
+let count=0;      
  
 
   var toLogout = document.getElementById("anc-tag")
@@ -41,57 +42,82 @@ if(loginStatus){
  console.log(products)
  // select Objects
  var select={
-     expiryDate:false,
-     stock:false
+     expiryDate:true,
+     stock:true
  }
 
 
 var checkedBoxes =  document.getElementById("checked-boxes")
 checkedBoxes.addEventListener('change',(e)=>{
+    count=0;
 console.log("clicked")
 select[e.target.name]=e.target.checked;
 for(let i=0;i<products.length;i++){
+    
     if(select["expiryDate"]===true && select["stock"]===false){
+    //   count=count-1;
         let currentDate = new Date();
         let expiryDate= new Date(products[i].expiryDate)
+        // countpara.innerText=count;
         if(expiryDate>currentDate){
+          
             let productRow=document.getElementById(products[i].id);
             productRow.style.display="none";
+           
+          
+            // countpara.innerText=count;
+           
         }
         else{
+            count+=1;
             let productRow=document.getElementById(products[i].id);
             productRow.style.display="";
+            countpara.innerText=count;
+           
         }
 
     }
     else if(select["expiryDate"]===false && select["stock"]===true){
+       
         if(products[i].stock>100){
+            // count-=1;
             let productRow=document.getElementById(products[i].id);
             productRow.style.display="none";
+           
+
         }
         else{
+            count+=1;
             let productRow=document.getElementById(products[i].id);
             productRow.style.display="";
+            countpara.innerText=count;
+          
         }
     }
     else if(select["expiryDate"]===false && select["stock"]===false){
+        count+=1;
         let productRow=document.getElementById(products[i].id);
         productRow.style.display="";
+        countpara.innerText=count;
     }
     else if(select["expiryDate"]===true && select["stock"]===true){
-   
+        count+=1;
         let currentDate = new Date();
         let expiryDate= new Date(products[i].expiryDate)
         console.log(products[i].expiryDate)
-
+        countpara.innerText=count;
         if(expiryDate>currentDate && products[i].stock>100){
             console.log("sdv")
+            // count-=1;
             let productRow=document.getElementById(products[i].id);
             productRow.style.display="none";
+            countpara.innerText=count;
         }
         else{
+             count-=1;
             let productRow=document.getElementById(products[i].id);
             productRow.style.display="";
+            countpara.innerText=count;
         }
        
     }
@@ -151,7 +177,7 @@ function cards(data){
     
     var data5=document.createElement("td");
     data5.classList.add("unit-price");
-    data5.innerText=data.unitPrice
+    data5.innerText="$"+data.unitPrice
     
     tableRow.appendChild(data5)
     
