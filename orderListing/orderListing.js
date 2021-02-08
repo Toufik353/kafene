@@ -1,5 +1,4 @@
-  
-    var table = document.getElementById("table");
+var table = document.getElementById("table");
 var orders;
 // console.log(orders)
 
@@ -24,7 +23,8 @@ fetch("https://5fc1a1c9cb4d020016fe6b07.mockapi.io/api/v1/orders")
 })
 
 
-
+let countpara=document.getElementById('num');
+let count=0;
 console.log(orders)
 var selectedCheckBox = {
     New:true,
@@ -33,8 +33,9 @@ var selectedCheckBox = {
     Delivered:true
 }
 
-var checkedBoxes = document.getElementById("checked-boxes");
+let checkedBoxes = document.getElementById("checked-boxes");
 checkedBoxes.addEventListener('click',(e)=>{
+    count=0;
     selectedCheckBox[e.target.name]=e.target.checked
     console.log(selectedCheckBox)
 
@@ -47,8 +48,10 @@ checkedBoxes.addEventListener('click',(e)=>{
         
     }else{
         // var cards = document.getElementById(item.id)
-        cards.style.display=""  
+        cards.style.display="" 
+        count+=1;
     }
+countpara.innerText=count;
 }
 
 
@@ -94,6 +97,7 @@ function cards(data){
 
 var tableRow = document.createElement("tr")
 tableRow.id=data.id;
+tableRow.classList.add("cardColor")
 
 var dataId = document.createElement("td")
 dataId.classList.add("id");
@@ -117,6 +121,7 @@ dataDate.appendChild(breaks)
 
 var span= document.createElement("span")
 span.innerText=data.orderTime;
+span.classList.add("time")
 
 dataDate.appendChild(span)
 
@@ -124,7 +129,7 @@ tableRow.appendChild(dataDate)
 {/* <td>"expiry-date"<br><span></span></td> */}
 var dataExpiryDate = document.createElement("td")
 dataExpiryDate.classList.add("expiry-date");
-dataExpiryDate.innerText = data.amount
+dataExpiryDate.innerText ="$"+data.amount
 
 
 
@@ -140,3 +145,28 @@ tableRow.appendChild(dataStatus)
 return tableRow
 
 }
+
+
+
+// // Active class for Orders, Products, Users
+// var header = document.getElementById('nav-items')
+// var items = document.getElementsByClassName("item");
+// var textsColor =document.getElementsByClassName('tag-anc')
+// for (let i = 0; i < items.length; i++) {
+//     items[i].addEventListener("click", function() {
+//   let current = document.getElementsByClassName("active");
+//   current[0].className = current[0].className.replace(" active", "");
+//   this.className += " active";
+
+//   });
+// }
+// for (let i = 0; i < textsColor.length; i++) {
+//     textsColor[i].addEventListener("click", function() {
+//   let current = document.getElementsByClassName(" text");
+//   current[0].className = current[0].className.replace(" text", "");
+  
+//   this.className += " text";
+
+
+//   });
+// }
