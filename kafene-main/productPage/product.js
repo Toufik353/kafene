@@ -153,6 +153,7 @@ function cards(data){
     var tableRow=document.createElement("tr");
     tableRow.id=data.id;
     tableRow.classList.add("table-row")
+    tableRow.style.borderBottom="4px solid #F6F7FB"
     
     var data1=document.createElement("td");
     data1.classList.add("id");
