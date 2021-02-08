@@ -21,7 +21,7 @@ if(loginStatus){
 
  var toTable = document.getElementById("table")
  
- fetch("https://5f8724ee49ccbb00161770a7.mockapi.io/moduleTopicsPage")
+ fetch("https://5fc1a1c9cb4d020016fe6b07.mockapi.io/api/v1/products")
  .then(response=>{
  
      return response.json()
