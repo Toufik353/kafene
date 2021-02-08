@@ -22,7 +22,8 @@ var searchInput = document.getElementById("search-input");
 searchInput.addEventListener("keyup",(e)=>{
     console.log(e.target.value)
 
-    if(e.target.value.length<=2){
+    if(e.target.value.length<2){
+        alert("Please enter at least 2 characters")
         for(let i=0; i<userListData.length;i++){
             // if(userListData[i].fullName.toLowerCase().includes(e.target.value.toLowerCase())){
               let dataId = document.getElementById(userListData[i].id);
@@ -33,13 +34,13 @@ searchInput.addEventListener("keyup",(e)=>{
     return
 }
 
-    if(e.target.value.length<=2){
-        
+    if(e.target.value.length<2){
+       alert("Please enter at least 2 characters")
     }else{
          for(let i=0; i<userListData.length;i++){
             if(userListData[i].fullName.toLowerCase().includes(e.target.value.toLowerCase())){
               let dataId = document.getElementById(userListData[i].id);
-              dataId.style.display=""
+              dataId.style.display="";
             }else{
                 let dataId = document.getElementById(userListData[i].id);
                 dataId.style.display="none" 
@@ -54,6 +55,7 @@ searchInput.addEventListener("keyup",(e)=>{
 var resetButton = document.getElementById("reset-button")
 resetButton.addEventListener('click',(e)=>{
     e.target.value="";
+    searchInput.value="";
 for(let i=0;i<userListData.length;i++)
 {
     let dataId=document.getElementById(userListData[i].id)
@@ -103,7 +105,8 @@ tableName.innerText=data.fullName
 tableRow.appendChild(tableName)
 
 var tableDob = document.createElement("td");
-tableDob.classList.add("expiry-date");
+tableDob.classList.add("expiry-date","Date-of-birth");
+// tableDob.classList.add(" Date-of-birth")
 tableDob.innerText=data.dob
 
 tableRow.appendChild(tableDob)
@@ -122,5 +125,3 @@ tableRow.appendChild(tableCurrLoc)
 
 return tableRow;
 }
-
-// createCards()
