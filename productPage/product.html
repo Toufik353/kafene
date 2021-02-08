@@ -6,7 +6,9 @@
     <title>Document</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./product.css"/>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">    
+<link rel="stylesheet" href="./product.css"/>
 </head>
 <body>
 
@@ -14,16 +16,15 @@
 
         <div id="main-logo">
             
-        <!-- <img id="logo" src="../assets/logo.58169365.png" alt=""/> -->
+        <img id="logo" src="../assets/logo.58169365.png" alt=""/>
         <h1>Kafene</h1>
         </div>
 
         <nav id="nav-items">
             <span class="item"><a class="tag-anc" href="../orderListing/orderListing.html">orders</a></span>
-            <span class="item"><a class="tag-anc" href="../productPage/product.html">Product</a></span>
+            <span class="item active"><a class="tag-anc text" href="../productPage/product.html">Product</a></span>
             <span class="item"><a class="tag-anc" href="../userListingPage/userListingPage.html">Users</a></span>
         </nav>
-
         <p id="log-out"><a id="anc-tag" href="../LoginPage/LoginPage.html" >Logout</a></p>
     </topbar>
          
@@ -34,11 +35,11 @@
                 <div id="left-wrapper">
                  <h1 id="product">Products</h1>
                  <p id="filters">Filters</p>
-                 <p>count:100</p>
+                 <p id="count">count: <span id="num">100</span> </p>
                 
                  <div id="checked-boxes">
-                    <input type="checkbox" name="expiryDate" id="expiry"/><span>Expired</span><br>
-                    <input id="low-stock" type="checkbox" name="stock" /><span>Low Stock</span>
+                    <input type="checkbox" name="expiryDate" id="expiry" checked/><span>Expired</span><br>
+                    <input id="low-stock" type="checkbox" name="stock" checked /><span>Low Stock</span>
                  </div>
                 
                 </div>
@@ -50,7 +51,7 @@
                 <div id="right-wrapper">
                    <table id="table">
                        <tr id="table-row" >
-                           <td class=" bold id" >ID</td>
+                           <td class="bold id" >ID</td>
                            <td class="bold product-name">Product Name</td>
                            <td class="bold product-brand">Product Brand</td>
                            <td class="bold expiry-date">Expiry Date</td>
