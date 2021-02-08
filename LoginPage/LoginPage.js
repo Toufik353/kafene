@@ -9,13 +9,38 @@ mainForm.addEventListener('submit',(e)=>{
     e.preventDefault();
 // console.log(inputName.value)
 // console.log(inputPassword.value)
-if(inputName.value==="kiran" && inputPassword.value==="hiran"){
-    alert("Hey Kiran")
+if(inputName.value===inputPassword.value){
+    alert("Login Successful")
     localStorage.setItem("isLoggedIn", true)
-    window.location.href="../productPage/product.html"
+    window.location.href="../orderListing/orderListing.html"
     
 }else{
-    alert("You are not a Kiran")
+    alert("Login Failed")
     return
 }
 })
+
+
+
+// Active class for Orders, Products, Users
+var header = document.getElementById('nav-items')
+var items = document.getElementsByClassName("item");
+var textsColor =document.getElementsByClassName('tag-anc')
+for (let i = 0; i < items.length; i++) {
+    items[i].addEventListener("click", function() {
+  let current = document.getElementsByClassName("active");
+  current[0].className = current[0].className.replace(" active", "");
+  this.className += " active";
+
+  });
+}
+for (let i = 0; i < textsColor.length; i++) {
+    textsColor[i].addEventListener("click", function() {
+  let current = document.getElementsByClassName(" text");
+  current[0].className = current[0].className.replace(" text", "");
+  
+  this.className += " text";
+
+
+  });
+}
